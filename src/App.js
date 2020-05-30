@@ -7,30 +7,18 @@ import CreatePost from "./components/create-post.component";
 import EditPost from "./components/edit-post.component";
 import PostList from "./components/post-list.component";
 
+import Navbar from "./components/layout/Navbar";
+import Landing from "./components/layout/Landing";
+
 import logo from "./logo.svg";
 
 class App extends Component {
   render() {
     return (
       <Router>
+        <Navbar />
         <div className="container">
-          <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="https://codingthesmartway.com" target="_blank">
-              <img src={logo} width="30" height="30" alt="CodingTheSmartWay.com" />
-            </a>
-            <Link to="/" className="navbar-brand">Find a Hackathon Group!</Link>
-            <div className="collpase navbar-collapse">
-              <ul className="navbar-nav mr-auto">
-                <li className="navbar-item">
-                  <Link to="/" className="nav-link">Listings</Link>
-                </li>
-                <li className="navbar-item">
-                  <Link to="/create" className="nav-link">Create Listing</Link>
-                </li>
-              </ul>
-            </div>
-          </nav>
-          <br/>
+        <Landing />
           <Route path="/" exact component={PostList} />
           <Route path="/edit/:id" component={EditPost} />
           <Route path="/create" component={CreatePost} />
