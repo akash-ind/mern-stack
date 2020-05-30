@@ -7,7 +7,7 @@ const userSchema = new Schema({
 	email:{ type: String, required: true, unique:true},
 	skills:{ type: Schema.Types.ObjectId, ref: 'Tech'},	//Tech is our models
 	interests:[{ type: Schema.Types.ObjectId, ref: 'Tech'}],	//containing the skills
-	team_mates:[{ type: Schema.Types.ObjectId, ref: 'User'}],
+	participating:[{ type: Schema.Types.ObjectID, ref: 'Hackathons'}],
 	password:{ type: String, required: true},
 	date: { type : Date, default: Date.now}
 },

@@ -89,4 +89,23 @@ router.route("/login").post((req, res) => {
   });
 });
 
+router.route("/add-skills").post((req, res)=>{
+	const skills=req.body.skills
+	//Here I should Get somehow the User=>name loggedInUser
+	loggedInUser.skills=[...loggedInUser.skills, ...skills];
+	loggedInUser.save()
+	.then(()=>res.json("Skills Added"))
+	.catch(err=> res.status(err.status).json("Error: "+ err));
+});
+
+router.route("/add-interests").post((req,res)=>{
+	const interests=req.body.interests
+	//Here I should Get somehow the User=>name loggedInUser
+	loggedInUser.interests=[...loggedInUser.interests, ...interests];
+	loggedInUser.save()
+	.then(()=>res.json("Interest Added"))
+	.catch(err=> res.status(err.status).json("Error: "+ err));
+});
+
+
 module.exports=router;
