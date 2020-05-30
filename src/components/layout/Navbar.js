@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 class Navbar extends Component {
   render() {
     return (
-        <nav className="navbar navbar-inverse navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-inverse navbar-fixed-top navbar-expand-lg navbar-light bg-light">
             <div className="navbar-header">
                 <Link to="/" className="navbar-brand">Find a Hackathon Group!</Link>
             </div>
             <div className="collpase navbar-collapse">
-              <ul className="navbar-nav mr-auto">
+              <ul className="navbar navbar-nav">
                 <li className="navbar-item">
                   <Link to="/" className="nav-link">Listings</Link>
                 </li>

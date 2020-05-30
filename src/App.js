@@ -9,6 +9,8 @@ import PostList from "./components/post-list.component";
 
 import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
+import Register from "./components/auth/Register";
+import Login from "./components/auth/Login";
 
 import logo from "./logo.svg";
 
@@ -18,6 +20,8 @@ class App extends Component {
       <Router>
         <Navbar />
         <div className="container">
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/login" component={Login} />
         <Landing />
           <Route path="/" exact component={PostList} />
           <Route path="/edit/:id" component={EditPost} />
