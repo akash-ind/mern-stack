@@ -1,7 +1,7 @@
 const mongoose=require('mongoose');
 const Schema=mongoose.Schema;
 
-teamSchema=new Schema({
+const teamSchema=new Schema({
 	name:{type: String, required:true},
 	createdBy:{type: Schema.Types.ObjectId, ref:"User"},
 	members:[{type: Schema.Types.ObjectId, ref:"User"}],
@@ -12,4 +12,4 @@ teamSchema=new Schema({
 
 const Team=mongoose.model('Team',teamSchema);
 
-module.exports= Team
+module.exports= Team;

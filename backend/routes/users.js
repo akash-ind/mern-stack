@@ -91,7 +91,9 @@ router.route("/login").post((req, res) => {
 
 router.route("/add-skills").post((req, res)=>{
 	const skills=req.body.skills
-	//Here I should Get somehow the User=>name loggedInUser
+	const loggedInUser=req.user
+  if(!loggedInUser)
+    throw new Error("Please login befor using this");
 	loggedInUser.skills=[...loggedInUser.skills, ...skills];
 	loggedInUser.save()
 	.then(()=>res.json("Skills Added"))
@@ -100,7 +102,9 @@ router.route("/add-skills").post((req, res)=>{
 
 router.route("/add-interests").post((req,res)=>{
 	const interests=req.body.interests
-	//Here I should Get somehow the User=>name loggedInUser
+  const loggedInUser=req.user
+  if(!loggedInUser)
+    throw new Error("Please login befor using this");
 	loggedInUser.interests=[...loggedInUser.interests, ...interests];
 	loggedInUser.save()
 	.then(()=>res.json("Interest Added"))

@@ -12,6 +12,6 @@ const hackathonSchema=new Schema({
 }
 );
 
-const Hackathon=mongoose.model('Hackathon', hackathonSchema)
+const Hackathon=mongoose.model('Hackathon', hackathonSchema);
 
 module.exports= Hackathon;
