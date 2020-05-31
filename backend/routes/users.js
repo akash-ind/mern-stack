@@ -1,21 +1,24 @@
+const express = require("express");
 const router=require('express').Router();
-let User=require('../models/user.model');
 const bcrypt= require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const keys = require("../../config/keys");
 
 //Loading input Validation
 
 const validateRegisterInput= require("../validation/register");
 const validateLoginInput= require("../validation/login");
 
+// Load User model
+const User = require("../../models/User");
+router.post("/register", (req, res) => {
 
-router.route('/register').post((req,res)=>{
 //form validation
 const { errors, isValid }=validateRegisterInput(req.body);
 
 //check validation
 	if(!isValid){
-		return res.status(400).json(erros);
+		return res.status(400).json(errors);
 	}
 	User.findOne({email: req.body.email }).then(user=>{
 		if(user){
@@ -26,7 +29,7 @@ const { errors, isValid }=validateRegisterInput(req.body);
 				name:req.body.name,
 				email:req.body.email,
 				password:req.body.password,
-			});
+      });
 			//First hash before saving passwords
 			bcrypt.genSalt(10,(err,salt)=>{
 				bcrypt.hash(newUser.password,salt,(err,hash)=>{
@@ -38,8 +41,11 @@ const { errors, isValid }=validateRegisterInput(req.body);
 				})
 			});
 		}
-		
+	});
+/*
 	}).catch(err=>console.log(err));
+"from master commented during merge" 
+*/
 });
 
 //for login
@@ -66,10 +72,18 @@ router.route("/login").post((req, res) => {
         const payload = {
           id: user.id,
           name: user.name
+        };
+        // Sign token
+        jwt.sign(
+          payload,
+          keys.secretOrKey,
+/*
         };// Sign token
         jwt.sign(
           payload,
           process.env.secretOrKey,
+"from master commented during merge" 
+*/
           {
             expiresIn: 31556926 // 1 year in seconds
           },
@@ -89,6 +103,10 @@ router.route("/login").post((req, res) => {
   });
 });
 
+/*
+
+COMMENTED BY MICHELLE
+
 router.route("/add-skills").post((req, res)=>{
 	const skills=req.body.skills
 	//Here I should Get somehow the User=>name loggedInUser
@@ -106,6 +124,5 @@ router.route("/add-interests").post((req,res)=>{
 	.then(()=>res.json("Interest Added"))
 	.catch(err=> res.status(err.status).json("Error: "+ err));
 });
-
-
+*/
 module.exports=router;
