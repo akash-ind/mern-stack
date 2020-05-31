@@ -10,7 +10,7 @@ class Navbar extends Component {
             <div className="collapse navbar-collapse">
               <ul className="navbar navbar-nav">
                 <li className="navbar-item">
-                  <Link to="/" className="listing-btns">Listings</Link>
+                  <Link to="/show" className="listing-btns">Listings</Link>
                 </li>
                 <li className="navbar-item">
                   <Link to="/create" className="listing-btns">Create Listing</Link>

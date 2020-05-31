@@ -14,6 +14,7 @@ import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 import Create from "./components/layout/Create";
+import ListHackathons from "./components/layout/list-hackathons.js"
 
 import "./App.css";
 
@@ -45,6 +46,7 @@ class App extends Component {
             <Navbar />
             <Route exact path="/" component={Landing} />
             <Route exact path="/create" component={Create} />
+            <Route exact path="/show" component={ListHackathons} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Switch>

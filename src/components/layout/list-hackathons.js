@@ -11,7 +11,8 @@ class ListHackathons extends Component{
 	}
 	componentDidMount()
 	{
-		axios.get("hacks/")
+		const token = localStorage.jwtToken
+		axios.get("hacks/",{ headers: {"Authorization" : `Bearer ${token}`} })
 		.then((hacks)=>{
 			this.setState({
 				hackathons:[...hacks]
@@ -22,19 +23,17 @@ class ListHackathons extends Component{
 
 	render(){
 		const hackathons=this.state.hackathons;
-		hacks=hackathons.map((hack)=>{
-			<div className="row">
-				<div className="col">
+		return(
+			<div className="container">
+				{this.state.hackathons.map((hack)=>(
+					<div className="row">
+					<div className="col">
 					<p>hack.name</p>
 					<p>hack.description</p>
 					<p>hack.date</p>
 					<p>hack.duration</p>
 				</div>
-			</div> 
-		})
-		return(
-			<div className="container">
-				{hacks}
+				</div>))}
 			</div>
 		)
 	}
