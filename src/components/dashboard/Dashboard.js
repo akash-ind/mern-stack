@@ -33,7 +33,6 @@ return (
             >
               Logout
             </button>
-            <
           </div>
         </div>
       </div>
