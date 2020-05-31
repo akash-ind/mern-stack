@@ -1,0 +1,17 @@
+.listing-btns{
+    width: 120px;
+    text-align: center;
+    height: inherit !important;
+}
+.listing-btns:hover, .listing-btns:focus, .listing-btns:focus-within, .listing-btns:active{
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+    font-weight: bold;
+    height: auto;
+}
+.dashbrd{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+}
