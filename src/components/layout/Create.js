@@ -32,7 +32,7 @@ export default class CreatePost extends Component {
         });
     }
 
-    onChangeEventDescription(event) { //This is for changing the name of event
+    onChangeEventName(event) { //This is for changing the name of event
         this.setState({
             post_event_name: event.target.value
         });
@@ -64,34 +64,38 @@ export default class CreatePost extends Component {
 
     onSubmit(event) {
         event.preventDefault(); // prevent default HTML code
+        const token = localStorage.jwtToken
         const hack={
             name:this.state.post_event_name,
             description:this.state.post_event_description,
             date:this.state.post_event_date,
             duration:this.state.duration,
         }
-        axios.post("/hacks/add",{ hack })
-        .then( res=>{
+        axios.post('/hacks/add',{ hack },{ headers: {"Authorization" : `Bearer ${token}`} })
+        .then(res=>{
             console.log(res.data);
             console.log(res);
+            console.log("success");
         })
         .catch(err=>console.log(err));
 
-        console.log(`Post submitted:`);
+        /*console.log(`Post submitted:`);
         console.log(`Post Description: ${this.state.post_event_description}`);
         console.log(`Event Date: ${this.state.post_event_date}`);
         console.log(`Group Members: ${this.state.post_team_members}`);
         console.log(`Posted: ${this.state.post_date}`);
-        console.log(`Availability: ${this.state.post_open}`);
+        console.log(`Availability: ${this.state.post_open}`);*/
 
         this.setState({
+            post_event_name:'',
             post_event_description: '',
             post_event_date: '',
           //  post_team_members: [],
             post_max_members: '',
             post_owner: '',
           //  post_date: '',
-            post_open: ''
+            post_open: '',
+            post_duration:''
 
         })
     }
@@ -106,7 +110,7 @@ export default class CreatePost extends Component {
                         <div className="form-group">
                             <label>Event Name: </label>
                             <input type="text"
-                                classname="form-control" name="date"
+                                className="form-control" name="name"
                                 value={this.state.post_event_name}
                                 onChange={this.onChangeEventName}
                                 />

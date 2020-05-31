@@ -32,7 +32,7 @@ export default class CreatePost extends Component {
         });
     }
 
-    onChangeEventDescription(event) { //This is for changing the name of event
+    onChangeEventName(event) { //This is for changing the name of event
         this.setState({
             post_event_name: event.target.value
         });
@@ -64,7 +64,7 @@ export default class CreatePost extends Component {
 
     onSubmit(event) {
         event.preventDefault(); // prevent default HTML code
-        hack={
+        const hack={
             name:this.state.post_event_name,
             description:this.state.post_event_description,
             date:this.state.post_event_date,
