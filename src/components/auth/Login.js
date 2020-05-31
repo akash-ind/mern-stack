@@ -6,13 +6,17 @@ import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
 
 class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       email: "",
       password: "",
-      errors: {}
+      errors: {},
     };
+    this.componentDidMount=this.componentDidMount.bind(this);
+    this.componentWillReceiveProps=this.componentWillReceiveProps.bind(this);
+    this.onChange=this.onChange.bind(this);
+    this.onSubmit=this.onSubmit.bind(this);
   }
   componentDidMount() {
     // If logged in and user navigates to Login page, should redirect them to dashboard
@@ -49,7 +53,8 @@ if (nextProps.errors) {
   };
   
   render() {
-    const { errors } = this.state;return (
+    const { errors } = this.state;
+    return (
       <div className="container">
         <div style={{ marginTop: "8rem" }} className="row">
           <div className="col s8">

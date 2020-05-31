@@ -9,6 +9,7 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "classnames": "^2.2.6",
+    "concurrently": "^5.2.0",
     "is-empty": "^1.2.0",
     "jwt-decode": "^2.2.0",
     "react": "^16.13.1",
@@ -25,9 +26,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "client-install": "npm install --prefix client",
-    "server": "nodemon server.js",
+    "server": "nodemon backend/server",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run start\""
   },
   "proxy": "http://localhost:5000",
   "eslintConfig": {
