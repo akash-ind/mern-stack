@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const hackathonSchema=new Schema({
 	name:{ type: String, required: true},
+	description:{ type: String},
 	date:{ type: Date },
 	teams:[{type: Schema.Types.ObjectId, ref:"Teams"}],
 	duration:{ type: String}
