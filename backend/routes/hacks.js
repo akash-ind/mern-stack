@@ -19,11 +19,13 @@ router.route("/add").post((req,res)=>{
 	const name= req.body.name;
 	const date= Date.parse(req.body.date);
 	const duration= req.body.duration;
+	const description= req.body.description;
 
 	newHackathon= new Hackathon({
 		name:name,
 		date:date,
 		duration:duration,
+		description:description,
 	});
 	newHackathon.save()
 	.then(()=>res.json("Hackathon Created"))
