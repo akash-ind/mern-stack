@@ -1,11 +1,20 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import headerimg from "./header.png";
 class Navbar extends Component {
   render() {
     return (
       <nav className="navbar navbar-inverse navbar-fixed-top navbar-expand-lg navbar-light bg-light">
             <div className="navbar-header">
-                <Link to="/" className="navbar-brand">Find a Hackathon Group!</Link>
+                <Link to="/" className="navbar-brand"><img src={headerimg}
+                 style={{
+                  margin: "-0.5rem auto auto auto",
+                  padding:"0",
+                  height:"inherit",
+                  width: "140px",
+                  
+                }}
+                /></Link>
             </div>
             <div className="collapse navbar-collapse">
               <ul className="navbar navbar-nav">
@@ -21,7 +30,7 @@ class Navbar extends Component {
                 to="/register"
                 style={{
                   fontWeight: "bold",
-                  width: "130px",
+                  width: "7rem",
                   borderRadius: "3px",
                   letterSpacing: "1.5px",
                   display: "flex",
@@ -36,7 +45,7 @@ class Navbar extends Component {
                 to="/login"
                 style={{
                   fontWeight: "bold",
-                  width: "130px",
+                  width: "7rem",
                   borderRadius: "3px",
                   letterSpacing: "1.5px",
                   display: "flex",
