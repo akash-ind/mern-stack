@@ -32,7 +32,7 @@ export default class CreatePost extends Component {
         });
     }
 
-    onChangeEventDescription(event) { //This is for changing the name of event
+    onChangeEventName(event) { //This is for changing the name of event
         this.setState({
             post_event_name: event.target.value
         });
