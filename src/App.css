@@ -1,0 +1,23 @@
+.listing-btns{
+    width: 120px;
+    text-align: center;
+    padding-right: .5rem;
+    padding-left: .5rem;
+    display: block;
+    color:rgba(0,0,0,.7);
+}
+.listing-btns:hover, .listing-btns:active, .listing-btns:focus{
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+    font-weight: bold;
+    height: auto;
+    color:rgba(0,0,0,.7);
+    text-decoration: none;
+    background-color: rgba(0,0,0,0.1);
+}
+.dashbrd{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+}

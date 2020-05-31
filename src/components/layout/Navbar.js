@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 class Navbar extends Component {
   render() {
     return (
-        <nav className="navbar navbar-inverse navbar-fixed-top navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-inverse navbar-fixed-top navbar-expand-lg navbar-light bg-light">
             <div className="navbar-header">
                 <Link to="/" className="navbar-brand">Find a Hackathon Group!</Link>
             </div>
-            <div className="collpase navbar-collapse">
+            <div className="collapse navbar-collapse">
               <ul className="navbar navbar-nav">
                 <li className="navbar-item">
-                  <Link to="/" className="nav-link">Listings</Link>
+                  <Link to="/" className="listing-btns">Listings</Link>
                 </li>
                 <li className="navbar-item">
-                  <Link to="/create" className="nav-link">Create Listing</Link>
+                  <Link to="/create" className="listing-btns">Create Listing</Link>
                 </li>
               </ul>
             </div>
@@ -21,14 +21,14 @@ class Navbar extends Component {
                 to="/register"
                 style={{
                   fontWeight: "bold",
-                  width: "140px",
+                  width: "130px",
                   borderRadius: "3px",
                   letterSpacing: "1.5px",
                   display: "flex",
                   flexFlow: "column wrap",
                   justifyContent: "center"
                 }}
-                className="btn btn-large waves-effect waves-light hoverable blue accent-2.5"
+                className="btn btn-large waves-effect waves-light hoverable white-text blue accent-2.5"
               >
                 Register
             </Link>
@@ -36,7 +36,7 @@ class Navbar extends Component {
                 to="/login"
                 style={{
                   fontWeight: "bold",
-                  width: "140px",
+                  width: "130px",
                   borderRadius: "3px",
                   letterSpacing: "1.5px",
                   display: "flex",
@@ -48,7 +48,7 @@ class Navbar extends Component {
               >
                 Log In
             </Link>
-        </nav>
+      </nav>
     );
   }
 }export default Navbar;
