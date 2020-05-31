@@ -10,10 +10,10 @@ class Navbar extends Component {
             <div className="collapse navbar-collapse">
               <ul className="navbar navbar-nav">
                 <li className="navbar-item">
-                  <Link to="/" className="nav-link listing-btns">Listings</Link>
+                  <Link to="/" className="listing-btns">Listings</Link>
                 </li>
                 <li className="navbar-item">
-                  <Link to="/create" className="nav-link listing-btns">Create Listing</Link>
+                  <Link to="/create" className="listing-btns">Create Listing</Link>
                 </li>
               </ul>
             </div>
@@ -21,7 +21,7 @@ class Navbar extends Component {
                 to="/register"
                 style={{
                   fontWeight: "bold",
-                  width: "140px",
+                  width: "130px",
                   borderRadius: "3px",
                   letterSpacing: "1.5px",
                   display: "flex",
@@ -36,7 +36,7 @@ class Navbar extends Component {
                 to="/login"
                 style={{
                   fontWeight: "bold",
-                  width: "140px",
+                  width: "130px",
                   borderRadius: "3px",
                   letterSpacing: "1.5px",
                   display: "flex",
