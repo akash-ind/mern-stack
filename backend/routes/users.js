@@ -2,7 +2,7 @@ const express = require("express");
 const router=require('express').Router();
 const bcrypt= require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const keys = require("../../config/keys");
+const keys = require("../config/keys");
 
 //Loading input Validation
 
@@ -10,7 +10,7 @@ const validateRegisterInput= require("../validation/register");
 const validateLoginInput= require("../validation/login");
 
 // Load User model
-const User = require("../../models/User");
+const User = require("../models/user.model");
 router.post("/register", (req, res) => {
 
 //form validation
