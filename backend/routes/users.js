@@ -11,7 +11,6 @@ const validateLoginInput= require("../validation/login");
 
 // Load User model
 const User = require("../../models/User");
-
 router.post("/register", (req, res) => {
 
 //form validation
@@ -31,7 +30,6 @@ const { errors, isValid }=validateRegisterInput(req.body);
 				email:req.body.email,
 				password:req.body.password,
       });
-      
 			//First hash before saving passwords
 			bcrypt.genSalt(10,(err,salt)=>{
 				bcrypt.hash(newUser.password,salt,(err,hash)=>{
@@ -43,8 +41,11 @@ const { errors, isValid }=validateRegisterInput(req.body);
 				})
 			});
 		}
-		
 	});
+/*
+	}).catch(err=>console.log(err));
+"from master commented during merge" 
+*/
 });
 
 //for login
@@ -58,13 +59,11 @@ router.route("/login").post((req, res) => {
   }
   const email = req.body.email;
   const password = req.body.password;// Find user by email
-  
   User.findOne({ email }).then(user => {
     // Check if user exists
     if (!user) {
       return res.status(404).json({ emailnotfound: "Email not found" });
     }
-
     // Check password
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
@@ -74,11 +73,17 @@ router.route("/login").post((req, res) => {
           id: user.id,
           name: user.name
         };
-        
         // Sign token
         jwt.sign(
           payload,
           keys.secretOrKey,
+/*
+        };// Sign token
+        jwt.sign(
+          payload,
+          process.env.secretOrKey,
+"from master commented during merge" 
+*/
           {
             expiresIn: 31556926 // 1 year in seconds
           },
@@ -97,7 +102,11 @@ router.route("/login").post((req, res) => {
     });
   });
 });
+
 /*
+
+COMMENTED BY MICHELLE
+
 router.route("/add-skills").post((req, res)=>{
 	const skills=req.body.skills
 	//Here I should Get somehow the User=>name loggedInUser
@@ -116,5 +125,4 @@ router.route("/add-interests").post((req,res)=>{
 	.catch(err=> res.status(err.status).json("Error: "+ err));
 });
 */
-
 module.exports=router;
