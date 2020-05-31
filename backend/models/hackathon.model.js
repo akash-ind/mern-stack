@@ -5,7 +5,7 @@ const hackathonSchema=new Schema({
 	name:{ type: String, required: true},
 	date:{ type: Date },
 	teams:[{type: Schema.Types.ObjectId, ref:"Teams"}],
-	Duration:{ type: String}
+	duration:{ type: String}
 },
 {
 	timestamps:true

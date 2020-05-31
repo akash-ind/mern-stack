@@ -10,6 +10,6 @@ teamSchema=new Schema({
 	timestamp:true
 });
 
-const Teams=mongoose.model('Teams',teamSchema);
+const Team=mongoose.model('Team',teamSchema);
 
-module.exports= Teams
+module.exports= Team
